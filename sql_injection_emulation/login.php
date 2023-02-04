@@ -7,9 +7,14 @@
         $query = "SELECT * FROM `users` WHERE `username`='$username' AND `password`='$password'";
         $result = mysqli_query($connection, $query);
         $row = mysqli_num_rows($result);
-        if ($row > 0) $_SESSION['message'] = 'Attacking Succeeded';
-        else $_SESSION['message'] = 'Attacking Failed Miserly';
-
+        if ($row > 0) {
+            $_SESSION['message'] = 'success'; 
+            echo "success";
+        }
+        else {
+            $_SESSION['message'] = 'fail';
+            echo "failed";
+        }
         header("location: /");
     }
 ?>
